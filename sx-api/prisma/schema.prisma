@@ -1,0 +1,41 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model users {
+  id            Int            @id @default(autoincrement())
+  name          String         @db.VarChar(100)
+  lastName      String?        @map("last_name") @db.VarChar(100)
+  email         String         @unique @db.VarChar(100)
+  password      String
+  dateBirth     DateTime?      @map("date_birth") @db.Date
+  phoneNumber   String?        @map("phone_number") @db.VarChar(25)
+  role          String[]       @db.VarChar(10)
+  avatar        String?
+  verifiedEmail Boolean?       @default(false) @map("verified_email")
+  blogMessages  blogMessages[]
+
+  @@map("users")
+}
+
+model blogMessages {
+  idMessage   Int       @id @default(autoincrement()) @map("id_message")
+  message     String    @default("")
+  idUser      Int       @map("id_user")
+  dateMessage DateTime? @default(now()) @map("date_message") @db.Timestamptz(6)
+  users       users     @relation(fields: [idUser], references: [id], onDelete: NoAction, onUpdate: NoAction)
+
+  @@map("blog_messages")
+}
+
+model siteConfig {
+  idSiteConfig Int     @id @default(autoincrement()) @map("id_site_config")
+  mainAvatar    String? @db.VarChar(256) @map("main_avatar")
+
+  @@map("site_config")
+}

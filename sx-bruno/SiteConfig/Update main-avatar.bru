@@ -1,0 +1,19 @@
+meta {
+  name: Update main-avatar
+  type: http
+  seq: 1
+}
+
+patch {
+  url: http://localhost:3001/site/main-avatar
+  body: multipartForm
+  auth: bearer
+}
+
+auth:bearer {
+  token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsInVzZXJuYW1lIjoiYWRtQGVtYWlsLnZhbGUiLCJyb2xlIjpbImFkbWluIiwidXNlciJdLCJpYXQiOjE3MzU3NjQ3MTEsImV4cCI6MTczNTc2NjUxMX0.lKICqWUXAjOe_accYdj-6Jjm61Y39O7qqJSC_9ltlH8
+}
+
+body:multipart-form {
+  main-avatar: @file(C:\Users\gabri\Downloads\susi.png)
+}

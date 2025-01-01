@@ -1,0 +1,21 @@
+meta {
+  name: Create
+  type: http
+  seq: 1
+}
+
+post {
+  url: http://localhost:3001/blog
+  body: json
+  auth: bearer
+}
+
+auth:bearer {
+  token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsInVzZXJuYW1lIjoiYWRtQGVtYWlsLnZhbGUiLCJyb2xlIjpbImFkbWluIiwidXNlciJdLCJpYXQiOjE3MzU2NjAwNjgsImV4cCI6MTczNTY2MTg2OH0.tmYFfq5tdmYOh0vzpzQiKlC1CK63xLpWL6k9Hxk4jgo
+}
+
+body:json {
+  {
+    "message": "<h2>Bruno</h2>"
+  }
+}

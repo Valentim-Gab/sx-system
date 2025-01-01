@@ -1,0 +1,19 @@
+meta {
+  name: Create
+  type: http
+  seq: 2
+}
+
+post {
+  url: http://localhost:3000/user
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "name": "Kenny Steam",
+    "email": "kennysteammassauro@gmail.com",
+    "password": "123"
+  }
+}

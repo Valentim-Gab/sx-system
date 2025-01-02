@@ -29,7 +29,13 @@ export class SiteConfigController {
   @UseGuards(JwtAuthGuard, RolesGuard)
   @Roles(Role.User, Role.Admin)
   @Patch('main-avatar')
-  @UseInterceptors(FileInterceptor('main-avatar'))
+  @UseInterceptors(
+    FileInterceptor('main-avatar', {
+      limits: {
+        fileSize: 100 * 1024 * 1024, // 100 MB
+      },
+    }),
+  )
   uploadMainAvatar(@UploadedFile() image: Express.Multer.File) {
     return this.siteConfigService.updateMainAvatar(image)
   }

@@ -9,7 +9,7 @@ services:
       SECRET: ${SECRET}
       SECRET_REFRESH: ${SECRET_REFRESH}
     ports:
-      - "3005:3000"
+      - "3003:3001"
     depends_on:
       - sx-db
     networks:
@@ -22,7 +22,7 @@ services:
       POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
       POSTGRES_DB: ${POSTGRES_DB}
     ports:
-      - 5438:5432
+      - 5436:5432
     networks:
       - sx-network
     volumes:

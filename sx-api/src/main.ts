@@ -10,11 +10,11 @@ async function bootstrap() {
     origin: [
       'http://localhost:3000',
       'http://localhost:1420',
-      'https://tauri.localhost/',
+      'https://tauri.localhost',
       'app://localhost',
     ],
     methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH', 'HEAD', 'OPTIONS'],
-    allowedHeaders: ['content-Type', 'set-cookie', 'Authorization'],
+    allowedHeaders: ['Content-Type', 'set-cookie', 'Authorization'],
   })
 
   app.use(cookieParser())

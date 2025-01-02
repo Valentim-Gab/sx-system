@@ -12,6 +12,7 @@ async function bootstrap() {
       'http://localhost:1420',
       'https://tauri.localhost',
       'app://localhost',
+      'https://sx-system-web.vercel.app',
     ],
     methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH', 'HEAD', 'OPTIONS'],
     allowedHeaders: ['Content-Type', 'set-cookie', 'Authorization'],

@@ -34,7 +34,11 @@ export default function Blog() {
               className="flex flex-col bg-card shadow p-4 rounded-lg"
             >
               <InnerHtmlContainer html={blogMessage.message} />
-              <p className="text-muted-foreground text-sm mt-4 place-self-end">{blogMessage.formatDate.date} - {blogMessage.formatDate.time}</p>
+              {blogMessage.formatDate && (
+                <p className="text-muted-foreground text-sm mt-4 place-self-end">
+                  {blogMessage.formatDate.date} - {blogMessage.formatDate.time}
+                </p>
+              )}
             </div>
           ))}
         </section>

@@ -2,7 +2,7 @@ export interface Message {
   idMessage?: string
   message: string
   dateMessage?: Date | string
-  formatDate: {
+  formatDate?: {
     date: string
     time: string
   }

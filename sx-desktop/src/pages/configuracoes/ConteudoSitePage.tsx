@@ -30,6 +30,10 @@ export default function ConteudoSitePage() {
 
   const cancelChangeAvatar = () => {
     setNewAvatar(null)
+
+    if (inputFileRef.current) {
+      inputFileRef.current.value = ''
+    }
   }
 
   const acceptChangeAvatar = async () => {

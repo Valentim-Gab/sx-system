@@ -37,8 +37,6 @@ export default function FormBlog({ className, onRefresh }: FormBlogProps) {
   async function onSubmit(values: z.infer<typeof blogSchema>) {
     const isSuccess = await blogService.create(values)
 
-    console.log(values.message)
-
     if (isSuccess) {
       toast({
         title: 'Mensagem cadastrada',

@@ -9,6 +9,7 @@ edition = "2021"
 
 [build-dependencies]
 tauri-build = { version = "1", features = [] }
+dotenv = "0.15"
 
 [dependencies]
 tauri = { version = "1", features = [ "shell-open"] }

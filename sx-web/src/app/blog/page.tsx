@@ -1,11 +1,29 @@
+'use client'
+
 import { getAllPosts } from '@/services/blogService'
+import { environment } from '@/environments/environment'
 import InnerHtmlContainer from '@/components/InnerHtmlContainer/InnerHtmlContainer'
 import Image from 'next/image'
-import React from 'react'
-import { environment } from '@/environments/environment'
+import React, { useEffect, useState } from 'react'
+import { Post } from '@/interfaces/blog'
 
-export default async function Blog() {
-  const posts = await getAllPosts()
+export default function Blog() {
+  const [posts, setPosts] = useState<Post[]>([])
+
+  useEffect(() => {
+    async function fetchPosts() {
+      const posts = await getAllPosts()
+
+      if (posts) {
+        setPosts(posts)
+      }
+    }
+    fetchPosts()
+  }, [])
+
+  if (!posts) {
+    return <main>Carregando...</main>
+  }
 
   return (
     <main className="flex flex-col items-center bg-background-secondary">

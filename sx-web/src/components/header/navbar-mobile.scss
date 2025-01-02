@@ -1,5 +1,3 @@
-@import "@/assets/scss/media-queries.scss";
-
 .navbar-mobile {
   transform: scaleY(0);
   transform-origin: top;
@@ -8,7 +6,7 @@
   opacity: 0;
   top: 56px;
 
-  @media (min-width: $sm) {
+  @media (min-width: 640px) {
     top: 64px;
   }
 

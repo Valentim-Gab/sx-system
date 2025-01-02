@@ -7,7 +7,7 @@ import '@/assets/fonts/fonts.css'
 
 const raleway = Raleway({
   subsets: ['latin'],
-  weight: ['300', '400', '500', '700']
+  weight: ['300', '400', '500', '700'],
 })
 
 export const metadata = {
@@ -29,9 +29,11 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          <Header />
-          <HeaderMobile />
-          {children}
+          <div className="flex flex-col w-full min-h-screen">
+            <Header />
+            <HeaderMobile />
+            {children}
+          </div>
         </ThemeProvider>
       </body>
     </html>

@@ -88,7 +88,7 @@
   }
 
   .main-container {
-    @apply w-full max-w-[1400px] flex flex-col;
+    @apply w-full max-w-[1400px] flex-auto flex flex-col;
   }
 
   ::-webkit-scrollbar {

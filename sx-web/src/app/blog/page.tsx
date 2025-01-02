@@ -26,7 +26,7 @@ export default function Blog() {
   }
 
   return (
-    <main className="flex flex-col items-center bg-background-secondary">
+    <main className="flex-auto flex flex-col items-center bg-background-secondary">
       <section className="mt-8">
         <h1 className="text-2xl">Blog</h1>
       </section>

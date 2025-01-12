@@ -4,7 +4,7 @@ import { VariantProps, tv } from 'tailwind-variants'
 import { Loader2 } from 'lucide-react'
 
 const buttonStyle = tv({
-  base: 'flex justify-center items-center gap-2 px-8 py-4 text-white bg-primary rounded font-bold hover:brightness-95',
+  base: 'flex justify-center items-center gap-2 px-8 py-4 text-white bg-primary rounded font-bold transition-all duration-200 hover:brightness-95',
   variants: {
     variant: {
       google: 'gap-4 text-black bg-white font-medium border border-black',

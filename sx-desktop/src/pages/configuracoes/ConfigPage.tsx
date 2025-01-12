@@ -25,23 +25,34 @@ export default function ConfigPage() {
   })
 
   if (isLoadingUser) {
-    return <p>Carregando...</p>
+    return (
+      <main className="main-container flex items-center justify-center">
+        <Loader2 className="h-16 w-16 animate-spin" />
+      </main>
+    )
   }
 
   if (!user) {
-    return <p>Usuário não logado</p>
+    return (
+      <main className="main-container flex">
+        <section className="section flex flex-col items-center justify-center gap-4">
+          <i className="icon-[solar--user-block-rounded-bold-duotone] text-8xl text-primary" />
+          <h2 className="text-primary">Usuário não logado!</h2>
+        </section>
+      </main>
+    )
   }
 
   const configLinks = [
     {
-      name: 'Perfil',
+      name: 'Conta',
       icon: 'icon-[solar--user-circle-bold]',
-      link: 'perfil',
+      link: 'conta',
     },
     {
-      name: 'Credenciais',
+      name: 'Alterar senha',
       icon: 'icon-[solar--shield-bold]',
-      link: 'credenciais',
+      link: 'senha',
     },
     {
       name: 'Conteúdo do Site',
@@ -140,7 +151,7 @@ export default function ConfigPage() {
       })
     }
   }
-  
+
   return (
     <main className="flex-auto flex flex-col gap-4 p-4 sm:flex-row">
       <section className="section p-8 flex flex-col gap-8 sm:w-fit">
@@ -207,7 +218,9 @@ export default function ConfigPage() {
           </p>
           <p>
             <strong>Nascimento: </strong>
-            {(user.dateBirth as string) ?? 'Não cadastrada'}
+            {user.dateBirth
+              ? new Date(user.dateBirth).toLocaleDateString('pt-BR')
+              : 'Não cadastrada'}
           </p>
           <span className="flex items-center gap-1">
             <p>

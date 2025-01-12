@@ -101,7 +101,14 @@ export class UserService {
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
     const { password, ...data } = updateUserDto
 
-    return this.prismaUtil.performOperation(
+    const user = await this.findOne(idUser)
+    const changedEmail = user.email !== data.email
+
+    if (changedEmail) {
+      data.verifiedEmail = false
+    }
+
+    const newData = this.prismaUtil.performOperation(
       'Não foi porrível atualizar o usuário',
       async () => {
         return this.prisma.users.update({
@@ -111,6 +118,12 @@ export class UserService {
         })
       },
     )
+
+    if (changedEmail) {
+      this.authService.sendVerifyEmail(data.email)
+    }
+
+    return newData
   }
 
   async updatePassword(idUser: number, password: string) {

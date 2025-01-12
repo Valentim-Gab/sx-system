@@ -1,6 +1,7 @@
 import { Message } from '@/interfaces/Blog'
 import { BlogService } from '@/services/BlogService'
 import { useQuery } from '@tanstack/react-query'
+import { Loader2 } from 'lucide-react'
 import FormBlog from '@/components/forms/FormBlog'
 import InnerHtmlContainer from '@/components/InnerHtmlContainer/InnerHtmlContainer'
 
@@ -12,20 +13,31 @@ export default function Blog() {
   })
 
   if (isLoading) {
-    return <p>Carregando...</p>
+    return (
+      <main className="main-container flex items-center justify-center">
+        <Loader2 className="h-16 w-16 animate-spin" />
+      </main>
+    )
   }
 
   if (error || !data) {
-    return <p>Falha</p>
+    return (
+      <main className="main-container flex">
+        <section className="section flex flex-col items-center justify-center gap-4">
+          <i className="icon-[solar--danger-broken] text-8xl text-primary" />
+          <h2 className="text-primary">Erro ao buscar os posts do Blog!</h2>
+        </section>
+      </main>
+    )
   }
 
   return (
     <main className="flex-1 flex flex-col p-4">
       <section className="section flex flex-col gap-8 p-8">
-        <h1 className="text-xl">Cadastrar mensagem</h1>
+        <h1 className="font-bold">Cadastrar mensagem</h1>
         <FormBlog onRefresh={refetch} />
       </section>
-      <h1 className="text-foreground-strong font-bold mt-4">Mensagens</h1>
+      <h2 className="font-bold mt-4">Mensagens</h2>
       {data && data.length > 0 && (
         <section className="flex-auto flex flex-col gap-4 mt-4">
           {data.map((blogMessage: Message, index: number) => (

@@ -24,6 +24,16 @@ export class UserService {
     }
   }
 
+  async update(user: User) {
+    const res = await axiosInterceptor.put('/user/@me', user)
+
+    if (!res || res.status !== HttpStatusCode.Ok) {
+      return false
+    }
+
+    return true
+  }
+
   async downloadAvatar() {
     try {
       const res = await axiosInterceptor('/user/@me/avatar', {

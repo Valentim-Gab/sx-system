@@ -32,12 +32,12 @@ export default function MainLayout() {
     }
 
     alert = (
-      <div className="flex gap-2">
+      <div className="flex justify-between items-center gap-2">
         <p>O seu email ainda não foi verificado.</p>
         <AlertDialog
           title="Aviso!"
           description='Um email de confirmação será enviado para: "aaaahh"'
-          textButtonOpen="Clique aqui!"
+          textButtonOpen="Verificar"
           textButtonAction="Confirmar"
           textButtonCancel="Cancelar"
           action={sendEmail}

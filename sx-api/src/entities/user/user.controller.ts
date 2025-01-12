@@ -11,6 +11,7 @@ import {
   UseInterceptors,
   UploadedFile,
   Res,
+  Put,
 } from '@nestjs/common'
 import { UserService } from './user.service'
 import { CreateUserDto } from './dto/create-user.dto'
@@ -57,7 +58,7 @@ export class UserController {
 
   @UseGuards(JwtAuthGuard, RolesGuard)
   @Roles(Role.User, Role.Admin)
-  @Patch('@me')
+  @Put('@me')
   updateMe(
     @ReqUser() user: users,
     @Body(new ValidationPipe()) updateUserDto: UpdateUserDto,

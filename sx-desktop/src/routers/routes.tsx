@@ -10,6 +10,7 @@ import ResetPassword from '@/pages/auth/ResetPassword'
 import MainLayout from '@/layouts/MainLayout'
 import PublicLayout from '@/layouts/PublicLayout'
 import ConteudoSitePage from '@/pages/configuracoes/ConteudoSitePage'
+import AccountPage from '@/pages/configuracoes/AccountPage'
 
 const AppRoutes = () => {
   return (
@@ -25,6 +26,7 @@ const AppRoutes = () => {
           <Route path="configuracoes">
             <Route index element={<ConfigPage />} />
             <Route path="website" element={<ConteudoSitePage />} />
+            <Route path="conta" element={<AccountPage />} />
           </Route>
         </Route>
         <Route path="/public" element={<PublicLayout />}>

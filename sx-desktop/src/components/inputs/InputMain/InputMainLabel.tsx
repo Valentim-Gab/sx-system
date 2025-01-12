@@ -21,7 +21,7 @@ interface InputMainLabelProps
       React.LabelHTMLAttributes<HTMLLabelElement>,
       HTMLLabelElement
     > {
-  value: string | number
+  value?: string | number | Date
   children: ReactNode
   className?: string
 }
@@ -43,7 +43,7 @@ export default function InputMainLabel({
       )}
       data-label={
         (typeof value === 'string' && value !== '') ||
-        (typeof value === 'number' && value !== undefined)
+        (typeof value !== 'string' && value != undefined)
       }
     >
       {children}

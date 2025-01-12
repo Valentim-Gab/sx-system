@@ -124,12 +124,36 @@
     @apply bg-background text-foreground;
   }
 
+  h1 {
+    @apply text-2xl font-bold;
+  }
+
+  h2 {
+    @apply text-xl font-bold;
+  }
+
+  h3 {
+    @apply text-lg font-bold;
+  }
+
+  h4 {
+    @apply text-base font-bold;
+  }
+
+  h5 {
+    @apply text-sm font-bold;
+  }
+
+  h6 {
+    @apply text-xs font-bold;
+  }
+
   .font-secondary {
     font-family: "Old Standard TT", serif;
   }
 
   .main-container {
-    @apply w-full max-w-[1400px] flex flex-col;
+    @apply flex-auto p-2 sm:p-4 2xl:p-6;
   }
 
   .section {
@@ -152,17 +176,17 @@
     );
     @apply text-white;
   }
-  
+
   .btn-facebook {
     background-color: #3b5998;
     @apply text-white;
   }
-  
+
   .btn-whatsapp {
     background-color: #20b155;
     @apply text-white;
   }
-  
+
   .btn-gmail {
     @apply bg-white;
     color: #d93025;

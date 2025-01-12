@@ -22,7 +22,9 @@ interface AlertDialogProps {
 export default function AlertDialog(props: AlertDialogProps) {
   return (
     <AlertDialogComponent>
-      <AlertDialogTrigger>{props.textButtonOpen}</AlertDialogTrigger>
+      <AlertDialogTrigger className="border text-sm py-1.5 px-4 rounded-lg hover:bg-white hover:text-secondary transition-all duration-200">
+        {props.textButtonOpen}
+      </AlertDialogTrigger>
       <AlertDialogContent className="bg-card">
         <AlertDialogHeader>
           <AlertDialogTitle>{props.title}</AlertDialogTitle>

@@ -50,7 +50,7 @@ export default function FormAccount({ user, className }: FormAccountProps) {
 
     if (isSuccess) {
       toast({
-        title: 'Salvado!',
+        title: 'Sucesso!',
         description: 'Informações atualizadas com sucesso!',
         variant: 'positive',
       })
@@ -199,7 +199,7 @@ export default function FormAccount({ user, className }: FormAccountProps) {
           )}
         />
         <div className="flex justify-end mt-2">
-          <ButtonMain type="submit" className="w-52">
+          <ButtonMain type="submit" className="w-full">
             <i className="icon-[solar--verified-check-linear] w-[24px] h-[24px]"></i>
             Salvar
           </ButtonMain>

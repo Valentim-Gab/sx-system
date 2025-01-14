@@ -3,6 +3,7 @@ import axiosInterceptor from './interceptors/Axios'
 import { setAvatar } from '@/stores/AvatarSlice'
 import { store } from '@/stores/store'
 import { storageUser } from '@/helpers/StorageHelper'
+import { ResReturn } from '@/interfaces/ResReturn'
 
 export class UserService {
   async getMe(): Promise<User | null> {
@@ -32,6 +33,24 @@ export class UserService {
     }
 
     return true
+  }
+
+  async updatePassword(values: {
+    oldPassword: string
+    password: string
+    passwordConfirmation: string
+  }): Promise<ResReturn> {
+    const res = await axiosInterceptor.patch('/user/password', values)
+
+    if (!res) {
+      return { message: 'Erro ao tentar atualizar a senha', success: false }
+    }
+
+    if (res.status != HttpStatusCode.Ok) {
+      return { message: res.data.message, success: false }
+    }
+
+    return { message: 'Senha atualizada com sucesso!', success: true }
   }
 
   async downloadAvatar() {

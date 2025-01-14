@@ -9,3 +9,12 @@ interface User {
   role?: Array<'admin' | 'user'>;
   verifiedEmail?: boolean;
 }
+
+interface RulesPassword {
+  minLength: boolean;
+  maxLength: boolean;
+  uppercase: boolean;
+  lowercase: boolean;
+  number: boolean;
+  specialChar: boolean;
+}

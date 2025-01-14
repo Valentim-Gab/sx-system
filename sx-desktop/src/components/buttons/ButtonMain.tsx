@@ -13,6 +13,9 @@ const buttonStyle = tv({
     screen: {
       lg: 'lg:text-lg',
     },
+    disabled: {
+      true: 'bg-gray-300 text-gray-500 cursor-not-allowed',
+    },
   },
 })
 
@@ -47,7 +50,10 @@ export default function ButtonMain({
   return (
     <button
       {...rest}
-      className={twMerge(buttonStyle({ variant, screen }), rest.className)}
+      className={twMerge(
+        buttonStyle({ variant, screen, disabled: rest.disabled }),
+        rest.className
+      )}
     >
       {loading && <Loader2 className="mr-2 h-4 w-4 animate-spin" />}
       {getChildren()}

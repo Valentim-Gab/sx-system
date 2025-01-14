@@ -11,6 +11,7 @@ import { ImageUtil } from 'src/utils/image-util/image.util'
 import { CompressImageSaveStrategy } from 'src/utils/image-util/strategies/compress-image-save.strategy'
 import { DefaultImageSaveStrategy } from 'src/utils/image-util/strategies/default-image-save.strategy'
 import { Response } from 'express'
+import { UpdateUserPasswordDto } from './dto/update-user-password.dto'
 
 @Injectable()
 export class UserService {
@@ -124,6 +125,35 @@ export class UserService {
     }
 
     return newData
+  }
+
+  async updateVerifiedPassword(
+    idUser: number,
+    userUpdated: UpdateUserPasswordDto,
+  ) {
+    const user = await this.prismaUtil.performOperation(
+      'Não foi possível buscar pelo usuário',
+      async () => {
+        return this.prisma.users.findUnique({
+          where: { id: idUser },
+        })
+      },
+    )
+
+    console.log(user)
+
+    const isPasswordValid = await this.bcrypt.validate(
+      user.password,
+      userUpdated.oldPassword,
+    )
+
+    console.log(isPasswordValid)
+
+    if (!isPasswordValid) {
+      throw new BadRequestException('Senha antiga inválida')
+    }
+
+    return this.updatePassword(idUser, userUpdated.password)
   }
 
   async updatePassword(idUser: number, password: string) {

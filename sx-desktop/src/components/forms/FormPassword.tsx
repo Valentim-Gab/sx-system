@@ -142,12 +142,12 @@ export default function FormPassword({
                   </InputMain.Label>
                   <button
                     type="button"
-                    className="flex items-center justify-center p-2"
+                    className="flex items-center justify-center p-4"
                     onClick={() => showPassword('OLD_PASSWORD')}
                   >
                     <i
                       data-show={inputsType.oldPassword == 'text'}
-                      className="icon-[solar--eye-line-duotone] text-3xl text-secondary data-[show=true]:icon-[solar--eye-closed-bold-duotone]"
+                      className="icon-[solar--eye-line-duotone] text-2xl text-secondary data-[show=true]:icon-[solar--eye-closed-bold-duotone]"
                     ></i>
                   </button>
                 </InputMain.Root>
@@ -175,12 +175,12 @@ export default function FormPassword({
                   </InputMain.Label>
                   <button
                     type="button"
-                    className="flex items-center justify-center p-2"
+                    className="flex items-center justify-center p-4"
                     onClick={() => showPassword('PASSWORD')}
                   >
                     <i
                       data-show={inputsType.password == 'text'}
-                      className="icon-[solar--eye-line-duotone] text-3xl text-secondary data-[show=true]:icon-[solar--eye-closed-bold-duotone]"
+                      className="icon-[solar--eye-line-duotone] text-2xl text-secondary data-[show=true]:icon-[solar--eye-closed-bold-duotone]"
                     ></i>
                   </button>
                 </InputMain.Root>
@@ -207,12 +207,12 @@ export default function FormPassword({
                   </InputMain.Label>
                   <button
                     type="button"
-                    className="flex items-center justify-center p-2"
+                    className="flex items-center justify-center p-4"
                     onClick={() => showPassword('CONFIRMATION')}
                   >
                     <i
                       data-show={inputsType.passwordConfirmation == 'text'}
-                      className="icon-[solar--eye-line-duotone] text-3xl text-secondary data-[show=true]:icon-[solar--eye-closed-bold-duotone]"
+                      className="icon-[solar--eye-line-duotone] text-2xl text-secondary data-[show=true]:icon-[solar--eye-closed-bold-duotone]"
                     ></i>
                   </button>
                 </InputMain.Root>

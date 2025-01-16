@@ -11,6 +11,5 @@ export const mailerConfig: MailerOptions = {
       layoutsDir: path.resolve(__dirname, '..', '..', 'templates'),
     },
   },
-  transport:
-    'smtps://susixavier.robo@gmail.com:xdopucvpsfiedoyy@smtp.gmail.com',
+  transport: process.env.EMAIL_TRANSPORT,
 }

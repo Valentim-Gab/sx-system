@@ -174,7 +174,7 @@ export default function FormAccount({ user, className }: FormAccountProps) {
                     showMask={false}
                     inputMode="tel"
                     modify={(input: string) => {
-                      console.log('input', input.length)
+
                       if (input.length == 11) {
 
                         return {

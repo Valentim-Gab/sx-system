@@ -35,7 +35,9 @@ export default function AlterarSenhaPage() {
 
   return (
     <main className="main-container flex flex-col">
-      <BackLinkBtn to="/dashboard/configuracoes" />
+      <section>
+        <BackLinkBtn to="/dashboard/configuracoes" />
+      </section>
       <section className="flex-auto flex justify-center items-center">
         <div
           data-show={!submitted}

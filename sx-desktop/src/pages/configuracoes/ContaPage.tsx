@@ -34,8 +34,10 @@ export default function ContaPage() {
 
   return (
     <main className="main-container flex flex-col">
-      <BackLinkBtn to="/dashboard/configuracoes" />
-      <section className='flex-auto flex justify-center items-center'>
+      <section>
+        <BackLinkBtn to="/dashboard/configuracoes" />
+      </section>
+      <section className="flex-auto flex justify-center items-center">
         <div className="section p-6 max-w-[500px] min-h-[320px]">
           <h1 className="mb-6">Conta</h1>
           <FormAccount user={data} />

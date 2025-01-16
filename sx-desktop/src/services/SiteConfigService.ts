@@ -17,7 +17,7 @@ export class SiteConfigService {
     const res = await axiosInterceptor.put('/site', siteConfig)
 
     if (!res || res.status !== HttpStatusCode.Ok) {
-      return false
+      throw new Error()
     }
 
     return true

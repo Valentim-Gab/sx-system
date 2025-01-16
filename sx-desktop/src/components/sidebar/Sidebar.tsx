@@ -1,6 +1,5 @@
 import { Link, useLocation, useNavigate } from 'react-router-dom'
 import { useSidebar } from '../providers/SidebarProvider'
-import './Sidebar.scss'
 import { AuthService } from '@/services/AuthService'
 import { getUser } from '@/helpers/StorageHelper'
 import { UserService } from '@/services/UserService'
@@ -89,10 +88,10 @@ export default function Sidebar() {
         <label
           htmlFor="my-drawer"
           aria-label="close sidebar"
-          className="drawer-overlay"
+          className="drawer-overlay !cursor-default"
           onClick={toggleSidebar}
         ></label>
-        <div className="menu min-h-full w-80 p-8 bg-card">
+        <div className="menu min-h-full w-80 p-8 bg-card dark:border-r">
           <button
             className="flex flex-col items-center absolute right-0 top-0 p-2"
             onClick={toggleSidebar}

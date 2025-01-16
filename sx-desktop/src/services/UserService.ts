@@ -59,8 +59,6 @@ export class UserService {
         responseType: 'blob',
       })
 
-      console.log(res)
-
       if (!res || res.status !== HttpStatusCode.Ok) {
         return null
       }

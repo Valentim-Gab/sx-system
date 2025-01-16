@@ -43,7 +43,7 @@ export default function Blog() {
           {data.map((blogMessage: Message, index: number) => (
             <div
               key={index}
-              className="flex flex-col bg-card shadow p-4 rounded-lg"
+              className="flex flex-col bg-card shadow p-4 rounded-lg dark:border"
             >
               <InnerHtmlContainer html={blogMessage.message} />
               {blogMessage.formatDate && (

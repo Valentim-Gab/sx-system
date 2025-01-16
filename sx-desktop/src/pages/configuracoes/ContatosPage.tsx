@@ -64,12 +64,11 @@ export default function ContatosPage() {
 
   return (
     <main className="main-container grid grid-cols-1  auto-rows-min gap-y-4 gap-x-6 sm:grid-cols-[3fr_2fr]">
-      <BackLinkBtn
-        to="/dashboard/configuracoes"
-        className="self-start col-span-full"
-      />
+      <section className="self-start col-span-full">
+        <BackLinkBtn to="/dashboard/configuracoes" />
+      </section>
       <section className="section p-6">
-        <div className="">
+        <div>
           <h1 className="mb-6">Contatos</h1>
           <FormContacts siteConfig={data} />
         </div>

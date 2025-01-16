@@ -14,7 +14,7 @@ const buttonStyle = tv({
       lg: 'lg:text-lg',
     },
     disabled: {
-      true: 'bg-gray-300 text-gray-500 cursor-not-allowed',
+      true: 'opacity-40 cursor-not-allowed hover:brightness-100',
     },
   },
 })

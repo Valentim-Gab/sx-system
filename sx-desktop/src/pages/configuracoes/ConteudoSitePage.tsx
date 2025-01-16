@@ -20,7 +20,6 @@ export default function ConteudoSitePage() {
         return
       }
 
-      console.log(target.files?.item(0))
       const file = target.files.item(0)
 
       if (file) {
@@ -60,7 +59,9 @@ export default function ConteudoSitePage() {
 
   return (
     <main className="main-container flex flex-col gap-4 p-4">
-      <BackLinkBtn to="/dashboard/configuracoes" />
+      <section>
+        <BackLinkBtn to="/dashboard/configuracoes" />
+      </section>
       <section className="flex-auto section p-8 flex flex-col items-center gap-8">
         <h1>Avatar principal do site</h1>
         <div className="relative w-fit">

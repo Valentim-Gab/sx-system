@@ -82,7 +82,6 @@ export default function ConfigPage() {
         return
       }
 
-      console.log(target.files?.item(0))
       const file = target.files.item(0)
 
       if (file) {

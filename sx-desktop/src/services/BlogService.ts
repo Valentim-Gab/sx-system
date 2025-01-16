@@ -6,8 +6,7 @@ export class BlogService {
   async getAll(): Promise<Message[] | null> {
     try {
       const res = await axiosInterceptor('/blog/@me')
-      console.log(res)
-
+      
       if (!res || res.status != HttpStatusCode.Ok) {
         return null
       }
@@ -21,7 +20,6 @@ export class BlogService {
   async create(message: Message): Promise<Boolean> {
     try {
       const res = await axiosInterceptor.post('/blog', message)
-      console.log(res)
 
       if (!res || res.status != HttpStatusCode.Created) {
         return false

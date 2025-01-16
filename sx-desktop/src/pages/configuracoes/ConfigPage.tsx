@@ -4,7 +4,6 @@ import { useQuery, useQueryClient } from '@tanstack/react-query'
 import { Loader2 } from 'lucide-react'
 import { useRef, useState } from 'react'
 import { Link } from 'react-router-dom'
-import { twMerge } from 'tailwind-merge'
 
 export default function ConfigPage() {
   const userService = new UserService()
@@ -71,32 +70,7 @@ export default function ConfigPage() {
     },
   ]
 
-  const contacts = [
-    {
-      name: 'Instagram',
-      icon: 'icon-[mdi--instagram]',
-      href: 'https://www.instagram.com/mais.beleza.oficial/',
-      classes: 'btn-instagram',
-    },
-    {
-      name: 'Facebook',
-      icon: 'icon-[mdi--facebook]',
-      href: 'https://www.facebook.com/maisbeleza.susana',
-      classes: 'btn-facebook',
-    },
-    {
-      name: 'WhatsApp',
-      icon: 'icon-[mdi--whatsapp]',
-      href: 'https://wa.me/555592173898?text=Cuidando%20da%20sua%20beleza%20externa%20e%20interna',
-      classes: 'btn-whatsapp',
-    },
-    {
-      name: 'Email',
-      icon: 'icon-[logos--google-gmail]',
-      href: 'mailto:susixavieroficial@gmail.com',
-      classes: 'btn-gmail gap-3',
-    },
-  ]
+ 
 
   const changeAvatar = () => {
     inputFileRef.current?.click()
@@ -232,33 +206,7 @@ export default function ConfigPage() {
               <i className="icon-[solar--close-circle-bold] text-destructive text-lg"></i>
             )}
           </span>
-        </div>
-        <div className="grid grid-cols-1 gap-4 lg:grid-cols-2">
-          <h6 className="text-sm col-span-full font-semibold">
-            Redes Sociais do Site
-          </h6>
-          {contacts.map((button, index) => (
-            <Link
-              key={index}
-              to={button.href}
-              target="_blank"
-              className={twMerge(
-                'flex items-center justify-center gap-2 px-4 py-2 h-12 min-w-32 w-full rounded-lg font-medium shadow',
-                button.classes
-              )}
-            >
-              <i className={`${button.icon} w-6 h-6 text-white fill-white`}></i>
-              {button.name}
-            </Link>
-          ))}
-          {!contacts ||
-            (contacts.length <= 0 && (
-              <span className="p-4 col-span-full flex flex-wrap items-center justify-center text-center shadow rounded-lg gap-2">
-                <i className="icon-[solar--notification-lines-remove-linear] bg-secondary text-2xl"></i>
-                <p>Nenhum contato cadastrado</p>
-              </span>
-            ))}
-        </div>
+        </div>       
       </section>
       <section className="section">
         <div className="p-8">

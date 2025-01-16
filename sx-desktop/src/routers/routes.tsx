@@ -12,6 +12,7 @@ import PublicLayout from '@/layouts/PublicLayout'
 import ConteudoSitePage from '@/pages/configuracoes/ConteudoSitePage'
 import ContaPage from '@/pages/configuracoes/ContaPage'
 import AlterarSenhaPage from '@/pages/configuracoes/AlterarSenhaPage'
+import ContatosPage from '@/pages/configuracoes/ContatosPage'
 
 const AppRoutes = () => {
   return (
@@ -29,6 +30,7 @@ const AppRoutes = () => {
             <Route path="website" element={<ConteudoSitePage />} />
             <Route path="conta" element={<ContaPage />} />
             <Route path="senha" element={<AlterarSenhaPage />} />
+            <Route path="contatos" element={<ContatosPage />} />
           </Route>
         </Route>
         <Route path="/public" element={<PublicLayout />}>

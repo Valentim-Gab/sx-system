@@ -1,5 +1,4 @@
 import {
-  IsArray,
   IsDate,
   IsISO8601,
   IsNotEmpty,
@@ -20,7 +19,6 @@ export class CreateUserDto {
   email: string
 
   @IsString()
-  @IsNotEmpty()
   password: string
 
   @IsDate()
@@ -29,8 +27,4 @@ export class CreateUserDto {
 
   @IsPhoneNumber()
   phoneNumber: string
-
-  @IsArray()
-  @IsNotEmpty()
-  role: string[]
 }

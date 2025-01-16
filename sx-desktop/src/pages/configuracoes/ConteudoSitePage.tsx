@@ -2,6 +2,7 @@ import { environment } from '@/environments/environment'
 import { useToast } from '@/hooks/use-toast'
 import { SiteConfigService } from '@/services/SiteConfigService'
 import { useRef, useState } from 'react'
+import BackLinkBtn from '@/components/buttons/BackLinkBtn'
 
 export default function ConteudoSitePage() {
   const siteConfigService = new SiteConfigService()
@@ -19,7 +20,6 @@ export default function ConteudoSitePage() {
         return
       }
 
-      console.log(target.files?.item(0))
       const file = target.files.item(0)
 
       if (file) {
@@ -58,9 +58,12 @@ export default function ConteudoSitePage() {
   }
 
   return (
-    <main className="flex-auto flex flex-col gap-4 p-4 sm:flex-row">
+    <main className="main-container flex flex-col gap-4 p-4">
+      <section>
+        <BackLinkBtn to="/dashboard/configuracoes" />
+      </section>
       <section className="flex-auto section p-8 flex flex-col items-center gap-8">
-        <h1 className="text-2xl font-bold">Avatar principal do site</h1>
+        <h1>Avatar principal do site</h1>
         <div className="relative w-fit">
           <div className="rounded-full w-full aspect-square overflow-hidden sm:min-w-[300px] sm:max-w-[400px]">
             {!newAvatar && (

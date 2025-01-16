@@ -22,7 +22,7 @@ export default function Header({ showSidebar }: { showSidebar?: boolean }) {
   }
 
   return (
-    <header className="w-full flex flex-row justify-between items-center bg-card shadow px-2 py-3 h-14">
+    <header className="w-full flex flex-row justify-between items-center bg-card shadow px-2 py-3 h-14 dark:border-b">
       <button
         onClick={toggleSidebar}
         className="flex items-center justify-center"

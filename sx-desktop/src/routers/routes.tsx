@@ -10,10 +10,19 @@ import ResetPassword from '@/pages/auth/ResetPassword'
 import MainLayout from '@/layouts/MainLayout'
 import PublicLayout from '@/layouts/PublicLayout'
 import ConteudoSitePage from '@/pages/configuracoes/ConteudoSitePage'
+import ContaPage from '@/pages/configuracoes/ContaPage'
+import AlterarSenhaPage from '@/pages/configuracoes/AlterarSenhaPage'
+import ContatosPage from '@/pages/configuracoes/ContatosPage'
+import PreferenciasPage from '@/pages/configuracoes/PreferenciasPage'
 
 const AppRoutes = () => {
   return (
-    <Router>
+    <Router
+      future={{
+        v7_startTransition: true,
+        v7_relativeSplatPath: true,
+      }}
+    >
       <Routes>
         <Route path="/" element={<LoginRoute />} />
         <Route
@@ -25,9 +34,13 @@ const AppRoutes = () => {
           <Route path="configuracoes">
             <Route index element={<ConfigPage />} />
             <Route path="website" element={<ConteudoSitePage />} />
+            <Route path="conta" element={<ContaPage />} />
+            <Route path="senha" element={<AlterarSenhaPage />} />
+            <Route path="contatos" element={<ContatosPage />} />
+            <Route path="preferencias" element={<PreferenciasPage />} />
           </Route>
         </Route>
-        <Route path="/public" element={<PublicLayout />}>
+        <Route path="public" element={<PublicLayout />}>
           <Route path="email-confirmation" element={<VerifyEmail />} />
           <Route path="forgot" element={<ForgotPassword />} />
           <Route path="reset-password" element={<ResetPassword />} />

@@ -1,13 +1,13 @@
 import { Module } from '@nestjs/common'
-import { UserModule } from './routers/user/user.module'
+import { UserModule } from './entities/user/user.module'
 import { AuthModule } from './security/auth/auth.module'
 import { PrismaModule } from 'nestjs-prisma'
 import { ConfigModule } from '@nestjs/config'
-import configuration from './config/configuration'
-import { BlogModule } from './routers/blog/blog.module'
+import { BlogModule } from './entities/blog/blog.module'
 import { MailerModule } from '@nestjs-modules/mailer'
 import { mailerConfig } from './config/mailer.config'
-import { SiteConfigModule } from './routers/site-config/site-config.module'
+import { SiteConfigModule } from './entities/site-config/site-config.module'
+import configuration from './config/configuration'
 
 @Module({
   imports: [

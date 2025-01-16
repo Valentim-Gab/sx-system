@@ -13,7 +13,7 @@ export function ProtectedRoute({ component: Component, ...rest }: any) {
   })
 
   if (isLoading) {
-    return <div>Loading...</div>
+    return
   }
 
   if (error || !data) {

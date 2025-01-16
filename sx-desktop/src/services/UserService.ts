@@ -3,6 +3,7 @@ import axiosInterceptor from './interceptors/Axios'
 import { setAvatar } from '@/stores/AvatarSlice'
 import { store } from '@/stores/store'
 import { storageUser } from '@/helpers/StorageHelper'
+import { ResReturn } from '@/interfaces/ResReturn'
 
 export class UserService {
   async getMe(): Promise<User | null> {
@@ -24,13 +25,39 @@ export class UserService {
     }
   }
 
+  async update(user: User) {
+    const res = await axiosInterceptor.put('/user/@me', user)
+
+    if (!res || res.status !== HttpStatusCode.Ok) {
+      return false
+    }
+
+    return true
+  }
+
+  async updatePassword(values: {
+    oldPassword: string
+    password: string
+    passwordConfirmation: string
+  }): Promise<ResReturn> {
+    const res = await axiosInterceptor.patch('/user/password', values)
+
+    if (!res) {
+      return { message: 'Erro ao tentar atualizar a senha', success: false }
+    }
+
+    if (res.status != HttpStatusCode.Ok) {
+      return { message: res.data.message, success: false }
+    }
+
+    return { message: 'Senha atualizada com sucesso!', success: true }
+  }
+
   async downloadAvatar() {
     try {
       const res = await axiosInterceptor('/user/@me/avatar', {
         responseType: 'blob',
       })
-
-      console.log(res)
 
       if (!res || res.status !== HttpStatusCode.Ok) {
         return null

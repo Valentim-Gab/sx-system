@@ -8,6 +8,7 @@ services:
       DATABASE_URL: ${DATABASE_URL}
       SECRET: ${SECRET}
       SECRET_REFRESH: ${SECRET_REFRESH}
+      EMAIL_TRANSPORT: ${EMAIL_TRANSPORT}
     ports:
       - "3003:3001"
     depends_on:

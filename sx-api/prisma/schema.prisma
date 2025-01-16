@@ -35,7 +35,11 @@ model blogMessages {
 
 model siteConfig {
   idSiteConfig Int     @id @default(autoincrement()) @map("id_site_config")
-  mainAvatar    String? @db.VarChar(256) @map("main_avatar")
+  mainAvatar   String? @map("main_avatar") @db.VarChar(256)
+  gmailUrl     String? @map("gmail_url") @db.VarChar(256)
+  instagramUrl String? @map("instagram_url") @db.VarChar(256)
+  facebookUrl  String? @map("facebook_url") @db.VarChar(256)
+  whatsappUrl  String? @map("whatsapp_url") @db.VarChar(256)
 
   @@map("site_config")
 }

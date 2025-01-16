@@ -7,7 +7,7 @@ import {
 } from '@nestjs/common'
 import { JwtService } from '@nestjs/jwt'
 import { users } from '@prisma/client'
-import { UserService } from 'src/routers/user/user.service'
+import { UserService } from 'src/entities/user/user.service'
 import { BCryptService } from '../private/bcrypt.service'
 import { JwtPayload, JwtSign } from './auth.interface'
 import { ConfigService } from '@nestjs/config'

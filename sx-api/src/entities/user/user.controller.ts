@@ -11,6 +11,8 @@ import {
   UseInterceptors,
   UploadedFile,
   Res,
+  Put,
+  BadRequestException,
 } from '@nestjs/common'
 import { UserService } from './user.service'
 import { CreateUserDto } from './dto/create-user.dto'
@@ -24,6 +26,7 @@ import { ReqUser } from 'src/decorators/req-user.decorator'
 import { users } from '@prisma/client'
 import { FileInterceptor } from '@nestjs/platform-express'
 import { Response } from 'express'
+import { UpdateUserPasswordDto } from './dto/update-user-password.dto'
 
 @Controller('user')
 export class UserController {
@@ -57,7 +60,7 @@ export class UserController {
 
   @UseGuards(JwtAuthGuard, RolesGuard)
   @Roles(Role.User, Role.Admin)
-  @Patch('@me')
+  @Put('@me')
   updateMe(
     @ReqUser() user: users,
     @Body(new ValidationPipe()) updateUserDto: UpdateUserDto,
@@ -65,14 +68,28 @@ export class UserController {
     return this.userService.update(user.id, updateUserDto)
   }
 
+  // @UseGuards(JwtAuthGuard, RolesGuard)
+  // @Roles(Role.User, Role.Admin)
+  // @Patch('password')
+  // updatePassword(
+  //   @Body(new ValidationPipe()) updateUserDto: UpdateUserDto,
+  //   @ReqUser() user: users,
+  // ) {
+  //   return this.userService.updatePassword(user.id, updateUserDto.password)
+  // }
+
   @UseGuards(JwtAuthGuard, RolesGuard)
   @Roles(Role.User, Role.Admin)
   @Patch('password')
-  updatePassword(
-    @Body(new ValidationPipe()) updateUserDto: UpdateUserDto,
+  updateVerifiedPassword(
     @ReqUser() user: users,
+    @Body() userUpdated: UpdateUserPasswordDto,
   ) {
-    return this.userService.updatePassword(user.id, updateUserDto.password)
+    if (userUpdated.password !== userUpdated.passwordConfirmation) {
+      throw new BadRequestException('As senhas não conferem')
+    }
+
+    return this.userService.updateVerifiedPassword(user.id, userUpdated)
   }
 
   @UseGuards(JwtAuthGuard, RolesGuard)

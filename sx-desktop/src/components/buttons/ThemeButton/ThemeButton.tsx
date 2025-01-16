@@ -1,12 +1,35 @@
-import { HTMLAttributes } from 'react'
-import './ThemeButton.scss'
 import { twMerge } from 'tailwind-merge'
+import { Theme } from '@/components/providers/ThemeProvider'
+import './ThemeButton.scss'
 
-export default function ThemeButton(props: HTMLAttributes<HTMLDivElement>) {
+interface ThemeButtonProps {
+  className?: string
+  theme: Theme
+  onChange: (theme: Theme) => void
+}
+
+export default function ThemeButton({
+  className,
+  theme,
+  onChange,
+}: ThemeButtonProps) {
+  const handleTheme = () => {
+    if (theme == 'light') {
+      onChange('dark')
+    } else {
+      onChange('light')
+    }
+  }
+
   return (
-    <div {...props} className={twMerge('theme', props.className)}>
-      <input id="switch" type="checkbox" />
-      <div className="app-theme">
+    <div className={twMerge('theme', className)}>
+      <input
+        id="switch"
+        type="checkbox"
+        checked={theme == 'dark'}
+        onChange={handleTheme}
+      />
+      <div className="app-theme dark:border-2 dark:border-secondary">
         <nav>
           <time className="time">4:20 AM</time>
           <div className="icons">

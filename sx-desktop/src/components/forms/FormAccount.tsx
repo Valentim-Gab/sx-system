@@ -12,6 +12,7 @@ import { twMerge } from 'tailwind-merge'
 import { InputMain } from '@/components/inputs/InputMain/Index'
 import { useToast } from '@/hooks/use-toast'
 import { UserService } from '@/services/UserService'
+import { parseDate } from '@/utils/DateUtil'
 import ButtonMain from '../buttons/ButtonMain'
 
 export const formSchema = z.object({
@@ -40,7 +41,7 @@ export default function FormAccount({ user, className }: FormAccountProps) {
       name: user.name || '',
       lastName: user.lastName || '',
       email: user.email || '',
-      dateBirth: user.dateBirth ? new Date(user.dateBirth) : undefined,
+      dateBirth: parseDate(user.dateBirth),
       phoneNumber: user.phoneNumber || '',
     },
   })
@@ -174,9 +175,7 @@ export default function FormAccount({ user, className }: FormAccountProps) {
                     showMask={false}
                     inputMode="tel"
                     modify={(input: string) => {
-
                       if (input.length == 11) {
-
                         return {
                           mask: '(__) _ ____-____',
                           replacement: { _: /\d/ },

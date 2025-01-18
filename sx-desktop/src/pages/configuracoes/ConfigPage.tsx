@@ -70,8 +70,6 @@ export default function ConfigPage() {
     },
   ]
 
- 
-
   const changeAvatar = () => {
     inputFileRef.current?.click()
 
@@ -192,7 +190,9 @@ export default function ConfigPage() {
           <p>
             <strong>Nascimento: </strong>
             {user.dateBirth
-              ? new Date(user.dateBirth).toLocaleDateString('pt-BR')
+              ? new Date(user.dateBirth).toLocaleDateString('pt-BR', {
+                  timeZone: 'UTC',
+                })
               : 'Não cadastrada'}
           </p>
           <span className="flex items-center gap-1">
@@ -205,7 +205,7 @@ export default function ConfigPage() {
               <i className="icon-[solar--close-circle-bold] text-destructive text-lg"></i>
             )}
           </span>
-        </div>       
+        </div>
       </section>
       <section className="section">
         <div className="p-8">

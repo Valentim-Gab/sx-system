@@ -1,15 +1,13 @@
 import { Message } from '@/interfaces/Message'
-import { BlogService } from '@/services/BlogService'
 import { useQuery } from '@tanstack/react-query'
 import { Loader2 } from 'lucide-react'
-import FormBlog from '@/components/forms/FormBlog'
-import InnerHtmlContainer from '@/components/InnerHtmlContainer/InnerHtmlContainer'
+import { MessageService } from '@/services/MessageService'
 
-export default function Blog() {
-  const blogService = new BlogService()
-  const { data, error, isLoading, refetch } = useQuery({
-    queryKey: ['blog'],
-    queryFn: blogService.getAll,
+export default function Mensagens() {
+  const messageService = new MessageService()
+  const { data, error, isLoading } = useQuery({
+    queryKey: ['messages'],
+    queryFn: messageService.getAll,
   })
 
   if (isLoading) {
@@ -20,7 +18,7 @@ export default function Blog() {
     )
   }
 
-  if (error || !data) {
+  if (error) {
     return (
       <main className="main-container flex">
         <section className="section flex flex-col items-center justify-center gap-4">
@@ -33,22 +31,20 @@ export default function Blog() {
 
   return (
     <main className="flex-1 flex flex-col p-4">
-      <section className="section flex flex-col gap-8 p-8">
-        <h1 className="font-bold">Publicar mensagem</h1>
-        <FormBlog onRefresh={refetch} />
-      </section>
-      <h2 className="font-bold mt-4">Publicações</h2>
+      <h2 className="font-bold mt-4">Mensagens</h2>
       {data && data.length > 0 && (
         <section className="flex-auto flex flex-col gap-4 mt-4">
-          {data.map((blogMessage: Message, index: number) => (
+          {data.map((message: Message, index: number) => (
             <div
               key={index}
               className="flex flex-col bg-card shadow p-4 rounded-lg dark:border"
             >
-              <InnerHtmlContainer html={blogMessage.message} />
-              {blogMessage.formatDate && (
+              <p className="whitespace-pre-line break-words">
+                {message.message}
+              </p>
+              {message.formatDate && (
                 <p className="text-muted-foreground text-sm mt-4 place-self-end">
-                  {blogMessage.formatDate.date} - {blogMessage.formatDate.time}
+                  {message.formatDate.date} - {message.formatDate.time}
                 </p>
               )}
             </div>
@@ -58,9 +54,9 @@ export default function Blog() {
 
       {!data ||
         (data.length === 0 && (
-          <section className="section flex flex-col items-center justify-center gap-4 py-16 px-4 mt-4">
-            <i className="icon-[solar--chat-square-like-bold] w-[80px] h-[80px] text-primary"></i>
-            <h3 className="text-center">Você ainda não publicou nada</h3>
+          <section className="section flex-auto flex flex-col items-center justify-center gap-4 py-16 px-4 mt-4">
+            <i className="icon-[solar--chat-round-dots-bold] w-[80px] h-[80px] text-primary"></i>
+            <h3 className="text-center">Nenhuma mensagem cadastrada</h3>
           </section>
         ))}
     </main>

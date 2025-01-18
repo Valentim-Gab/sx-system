@@ -56,6 +56,11 @@ export default function Sidebar() {
       link: '/dashboard/blog',
     },
     {
+      icon: 'icon-[solar--chat-round-dots-bold]',
+      name: 'Mensagens',
+      link: '/dashboard/mensagens',
+    },
+    {
       icon: 'icon-[solar--settings-bold]',
       name: 'Configurações',
       link: '/dashboard/configuracoes',

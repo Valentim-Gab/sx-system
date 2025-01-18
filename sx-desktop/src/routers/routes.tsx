@@ -14,6 +14,7 @@ import ContaPage from '@/pages/configuracoes/ContaPage'
 import AlterarSenhaPage from '@/pages/configuracoes/AlterarSenhaPage'
 import ContatosPage from '@/pages/configuracoes/ContatosPage'
 import PreferenciasPage from '@/pages/configuracoes/PreferenciasPage'
+import Mensagens from '@/pages/message/Mensagens'
 
 const AppRoutes = () => {
   return (
@@ -31,6 +32,7 @@ const AppRoutes = () => {
         >
           <Route index element={<Dashboard />} />
           <Route path="blog" element={<Blog />} />
+          <Route path="mensagens" element={<Mensagens />} />
           <Route path="configuracoes">
             <Route index element={<ConfigPage />} />
             <Route path="website" element={<ConteudoSitePage />} />

@@ -1,7 +1,6 @@
 import {
   Controller,
   Get,
-  Post,
   Body,
   Patch,
   Param,
@@ -13,9 +12,9 @@ import {
   Res,
   Put,
   BadRequestException,
+  Post,
 } from '@nestjs/common'
 import { UserService } from './user.service'
-import { CreateUserDto } from './dto/create-user.dto'
 import { UpdateUserDto } from './dto/update-user.dto'
 import { JwtAuthGuard } from 'src/security/guards/jwt-auth.guard'
 import { RolesGuard } from 'src/security/guards/roles.guard'
@@ -27,11 +26,14 @@ import { users } from '@prisma/client'
 import { FileInterceptor } from '@nestjs/platform-express'
 import { Response } from 'express'
 import { UpdateUserPasswordDto } from './dto/update-user-password.dto'
+import { CreateUserDto } from './dto/create-user.dto'
 
 @Controller('user')
 export class UserController {
   constructor(private readonly userService: UserService) {}
 
+  @UseGuards(JwtAuthGuard, RolesGuard)
+  @Roles(Role.Admin)
   @Post()
   async create(@Body(new ValidationPipe()) createUserDto: CreateUserDto) {
     return this.userService.create(createUserDto)
@@ -67,16 +69,6 @@ export class UserController {
   ) {
     return this.userService.update(user.id, updateUserDto)
   }
-
-  // @UseGuards(JwtAuthGuard, RolesGuard)
-  // @Roles(Role.User, Role.Admin)
-  // @Patch('password')
-  // updatePassword(
-  //   @Body(new ValidationPipe()) updateUserDto: UpdateUserDto,
-  //   @ReqUser() user: users,
-  // ) {
-  //   return this.userService.updatePassword(user.id, updateUserDto.password)
-  // }
 
   @UseGuards(JwtAuthGuard, RolesGuard)
   @Roles(Role.User, Role.Admin)

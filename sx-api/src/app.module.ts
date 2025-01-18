@@ -8,6 +8,7 @@ import { MailerModule } from '@nestjs-modules/mailer'
 import { mailerConfig } from './config/mailer.config'
 import { SiteConfigModule } from './entities/site-config/site-config.module'
 import configuration from './config/configuration'
+import { MessageModule } from './entities/message/message.module'
 
 @Module({
   imports: [
@@ -15,6 +16,7 @@ import configuration from './config/configuration'
     UserModule,
     BlogModule,
     SiteConfigModule,
+    MessageModule,
     PrismaModule.forRoot(),
     MailerModule.forRoot(mailerConfig),
     ConfigModule.forRoot({

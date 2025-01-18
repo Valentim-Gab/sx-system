@@ -1,9 +1,9 @@
 import { twMerge } from 'tailwind-merge'
-import { Button } from '@/components/ui/button'
 import { getSiteConfig } from '@/services/siteConfigService'
 import { redirect } from 'next/navigation'
 import React from 'react'
 import Link from 'next/link'
+import FormMessage from '@/components/forms/form-message'
 
 export default async function Contato() {
   const siteConfig = await getSiteConfig()
@@ -49,16 +49,7 @@ export default async function Contato() {
 
       <section className="main-section min-h-[350px] flex-auto flex flex-col gap-4">
         <h2 className="text-white text-lg">Enviar mensagem</h2>
-        <form
-          className="flex-auto flex rounded-lg border p-3 pb-12 outline-none bg-[#0000007c] text-white relative sm:p-4 sm:pb-14"
-          lang="pt-BR"
-        >
-          <textarea className="flex-auto resize-none p-1 outline-none bg-transparent sm:p-4"></textarea>
-          <Button className="absolute right-2 bottom-2 h-8 px-6 text-white font-medium rounded-full sm:w-fit sm:right-3 sm:bottom-3 lg:h-9 lg:text-lg">
-            Enviar
-            <i className="icon-[mdi--send] w-4 h-4 ml-3"></i>
-          </Button>
-        </form>
+        <FormMessage />
       </section>
 
       <section className="main-section grid grid-cols-1 gap-y-4 gap-x-8 mt-4 mx-auto sm:grid-cols-2 lg:grid-cols-4">

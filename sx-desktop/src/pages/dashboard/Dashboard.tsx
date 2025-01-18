@@ -1,4 +1,5 @@
 import DashboardBlog from './DashboardBlog'
+import DashboardMessages from './DashboardMessages'
 
 export default function Dashboard() {
   return (
@@ -12,10 +13,7 @@ export default function Dashboard() {
         <h3 className="text-center">Estatísticas indisponíveis</h3>
       </section>
       <DashboardBlog />
-      <section className="section flex flex-col items-center justify-center gap-4 py-16 px-4">
-        <i className="icon-[solar--chat-line-bold-duotone] w-[80px] h-[80px] text-primary"></i>
-        <h3 className="text-center">Mensagens indisponíveis</h3>
-      </section>
+      <DashboardMessages />
     </main>
   )
 }

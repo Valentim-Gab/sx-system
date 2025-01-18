@@ -35,19 +35,19 @@ export default function DrawerThemeMobile() {
         </DrawerHeader>
         <DrawerFooter>
           <Button
-            className="cursor-pointer hover:bg-background hover:text-primary hover:border hover:border-primary"
+            className="cursor-pointer text-white hover:bg-background hover:text-primary hover:border hover:border-primary"
             onClick={() => changeTheme('light')}
           >
             Claro
           </Button>
           <Button
-            className="cursor-pointer hover:bg-background hover:text-primary hover:border hover:border-primary"
+            className="cursor-pointer text-white hover:bg-background hover:text-primary hover:border hover:border-primary"
             onClick={() => changeTheme('dark')}
           >
             Escuro
           </Button>
           <Button
-            className="cursor-pointer hover:bg-background hover:text-primary hover:border hover:border-primary"
+            className="cursor-pointer text-white hover:bg-background hover:text-primary hover:border hover:border-primary"
             onClick={() => changeTheme('system')}
           >
             Sistema

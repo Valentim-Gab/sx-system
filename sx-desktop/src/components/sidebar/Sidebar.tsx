@@ -23,6 +23,8 @@ export default function Sidebar() {
   useEffect(() => {
     if (data) {
       setAvatar(data)
+    } else {
+      setAvatar(null)
     }
   }, [data])
 

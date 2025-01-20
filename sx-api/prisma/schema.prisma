@@ -43,3 +43,9 @@ model siteConfig {
 
   @@map("site_config")
 }
+
+model message {
+  idMessage   Int       @id @default(autoincrement()) @map("id_message")
+  message     String    @default("")
+  dateMessage DateTime? @default(now()) @map("date_message") @db.Timestamptz(6)
+}

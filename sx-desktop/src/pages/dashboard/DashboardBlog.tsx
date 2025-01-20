@@ -2,7 +2,7 @@ import { BlogService } from '@/services/BlogService'
 import { useQuery } from '@tanstack/react-query'
 import { Loader2 } from 'lucide-react'
 import { Link } from 'react-router-dom'
-import { Message } from '@/interfaces/Blog'
+import { Message } from '@/interfaces/Message'
 import InnerHtmlContainer from '@/components/InnerHtmlContainer/InnerHtmlContainer'
 
 export default function DashboardBlog() {
@@ -46,7 +46,7 @@ export default function DashboardBlog() {
       {!data ||
         (data.length === 0 && (
           <div className="flex-auto flex flex-col items-center justify-center mb-8 gap-4">
-            <i className="icon-[solar--hashtag-chat-bold-duotone] w-[80px] h-[80px] text-primary"></i>
+            <i className="icon-[solar--chat-square-like-bold] w-[80px] h-[80px] text-primary"></i>
             <h3 className="text-center">Você ainda não publicou nada</h3>
           </div>
         ))}

@@ -140,14 +140,10 @@ export class UserService {
       },
     )
 
-    console.log(user)
-
     const isPasswordValid = await this.bcrypt.validate(
       user.password,
       userUpdated.oldPassword,
     )
-
-    console.log(isPasswordValid)
 
     if (!isPasswordValid) {
       throw new BadRequestException('Senha antiga inválida')

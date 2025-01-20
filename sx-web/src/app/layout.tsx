@@ -1,9 +1,10 @@
-import Header from '@/components/header/header'
-import HeaderMobile from '@/components/header/header-mobile'
 import { ThemeProvider } from '@/components/providers/theme-provider'
 import { Raleway } from 'next/font/google'
 import './globals.scss'
 import '@/assets/fonts/fonts.css'
+import { Toaster } from '@/components/ui/toaster'
+import Header from '@/components/header/header'
+import HeaderMobile from '@/components/header/header-mobile'
 
 const raleway = Raleway({
   subsets: ['latin'],
@@ -33,6 +34,7 @@ export default function RootLayout({
             <Header />
             <HeaderMobile />
             {children}
+            <Toaster />
           </div>
         </ThemeProvider>
       </body>

@@ -8,11 +8,11 @@ export const navbarItems = [
     text: 'Blog',
     url: '/blog',
   },
-  {
-    icon: '',
-    text: 'Sobre',
-    url: '/sobre',
-  },
+  // {
+  //   icon: '',
+  //   text: 'Sobre',
+  //   url: '/sobre',
+  // },
   {
     icon: '',
     text: 'Contato',

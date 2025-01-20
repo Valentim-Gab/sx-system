@@ -1,0 +1,16 @@
+# Ignorar a pasta node_modules
+node_modules
+
+# Ignorar arquivos de configuração locais
+.env
+
+# Ignorar diretórios de build
+dist/
+build/
+
+# Ignorar todos os arquivos temporários
+*.tmp
+*.log
+
+# Ignorar sistema de arquivos
+src/resources/static

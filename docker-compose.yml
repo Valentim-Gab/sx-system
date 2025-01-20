@@ -1,6 +1,19 @@
 version: '3'
 
 services:
+  sx-desktop:
+    build:
+      context: ./sx-desktop
+      args:
+        - VITE_API_URL=${API_URL_COMPOSE}
+    container_name: sx-desktop-web
+    ports:
+      - '9001:9001'
+    networks:
+      - sx-network
+    depends_on:
+      - sx-api
+
   sx-api:
     build: ./sx-api
     container_name: sx-api
@@ -10,11 +23,13 @@ services:
       SECRET_REFRESH: ${SECRET_REFRESH}
       EMAIL_TRANSPORT: ${EMAIL_TRANSPORT}
     ports:
-      - "3003:3001"
+      - '3003:3001'
     depends_on:
       - sx-db
     networks:
       - sx-network
+    volumes:
+      - sx-static-data:/app/src/resources/static
 
   sx-db:
     image: postgres:latest
@@ -36,3 +51,5 @@ networks:
 volumes:
   sx-db-data:
     name: sx-db-data
+  sx-static-data:
+    name: sx-static-data

@@ -23,6 +23,8 @@ export default function Sidebar() {
   useEffect(() => {
     if (data) {
       setAvatar(data)
+    } else {
+      setAvatar(null)
     }
   }, [data])
 
@@ -54,6 +56,11 @@ export default function Sidebar() {
       icon: 'icon-[solar--chat-square-like-bold]',
       name: 'Blog',
       link: '/dashboard/blog',
+    },
+    {
+      icon: 'icon-[solar--chat-round-dots-bold]',
+      name: 'Mensagens',
+      link: '/dashboard/mensagens',
     },
     {
       icon: 'icon-[solar--settings-bold]',

@@ -1,5 +1,5 @@
 import { HttpStatusCode } from 'axios'
-import { Message } from '@/interfaces/Blog'
+import { Message } from '@/interfaces/Message'
 import axiosInterceptor from './interceptors/Axios'
 
 export class BlogService {

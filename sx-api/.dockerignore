@@ -11,3 +11,6 @@ build/
 # Ignorar todos os arquivos temporários
 *.tmp
 *.log
+
+# Ignorar sistema de arquivos
+src/resources/static

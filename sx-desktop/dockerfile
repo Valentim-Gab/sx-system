@@ -1,0 +1,19 @@
+FROM node:18-alpine
+
+WORKDIR /app
+
+ARG VITE_API_URL=$VITE_API_URL
+ENV VITE_API_URL=$VITE_API_URL
+
+RUN npm i -g pnpm@latest
+RUN npm i -g prisma@latest
+RUN npm i -g serve@latest
+
+COPY --chown=node:node . .
+
+RUN pnpm install
+RUN pnpm run build
+
+EXPOSE 9001
+
+CMD ["sh", "-c", "npx serve -s dist -l 9001 > /dev/null"]

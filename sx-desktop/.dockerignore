@@ -7,6 +7,7 @@ node_modules
 # Ignorar diretórios de build
 dist/
 build/
+src-tauri/
 
 # Ignorar todos os arquivos temporários
 *.tmp

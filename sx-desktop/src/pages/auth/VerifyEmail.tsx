@@ -26,13 +26,16 @@ const InfoCard = () => {
     queryKey: ['verifyEmail'],
     queryFn: () => authService.verifyEmail(token),
     retry: false,
+    queries: {
+      refetchOnWindowFocus: false,
+    },
   })
 
   if (isLoading) {
     return (
       <>
         <div className="flex flex-col text-center gap-2 mt-12">
-          <h1 className="text-2xl font-bold">Verficação de email</h1>
+          <h1 className="text-2xl font-bold">Verificação de email</h1>
           <p>Email verificado com sucesso!</p>
         </div>
       </>
@@ -59,7 +62,7 @@ const InfoCard = () => {
         <i className="icon-[solar--verified-check-bold-duotone] w-28 h-28 text-primary"></i>
       </span>
       <div className="flex flex-col text-center gap-2 mt-2">
-        <h1 className="text-2xl font-bold">Verficação de email</h1>
+        <h1 className="text-2xl font-bold">Verificação de email</h1>
         <p>Email verificado com sucesso!</p>
       </div>
     </>

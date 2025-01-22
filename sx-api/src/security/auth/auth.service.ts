@@ -78,24 +78,32 @@ export class AuthService {
     }
   }
 
-  async sendVerifyEmail(email: string): Promise<void> {
-    const confirmationToken = jwt.sign(
-      { email: email },
-      this.config.get('secret'),
-      { expiresIn: '1h' },
-    )
+  async sendVerifyEmail(email: string) {
+    try {
+      const confirmationToken = jwt.sign(
+        { email: email },
+        this.config.get('secret'),
+        { expiresIn: '1h' },
+      )
+  
+      const mail = {
+        to: email,
+        from: 'noreply@application.com',
+        subject: 'Email de confirmação',
+        template: 'email-confirmation',
+        context: {
+          token: confirmationToken,
+        },
+      }
+  
+      await this.mailerService.sendMail(mail)
 
-    const mail = {
-      to: email,
-      from: 'noreply@application.com',
-      subject: 'Email de confirmação',
-      template: 'email-confirmation',
-      context: {
-        token: confirmationToken,
-      },
+      return {
+        message: 'Foi enviado um email para confirmar seu email',
+      }
+    } catch (error) {
+      throw new NotFoundException('Não foi possível enviar o email')
     }
-
-    await this.mailerService.sendMail(mail)
   }
 
   async sendRecoverPasswordEmail(email: string) {

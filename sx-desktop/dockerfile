@@ -14,6 +14,6 @@ COPY --chown=node:node . .
 RUN pnpm install
 RUN pnpm run build
 
-EXPOSE 9001
+EXPOSE 9002
 
-CMD ["sh", "-c", "npx serve -s dist -l 9001 > /dev/null"]
+CMD ["sh", "-c", "npx serve -s dist -l 9002 > /dev/null"]

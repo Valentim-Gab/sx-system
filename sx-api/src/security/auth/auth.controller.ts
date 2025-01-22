@@ -64,11 +64,7 @@ export class AuthController {
   async sendVerifyEmail(
     @ReqUser() user: Payload,
   ): Promise<{ message: string }> {
-    await this.authService.sendVerifyEmail(user.username)
-
-    return {
-      message: 'Foi enviado um email para confirmar seu email',
-    }
+    return await this.authService.sendVerifyEmail(user.username)
   }
 
   @Post('/send-recover-email')

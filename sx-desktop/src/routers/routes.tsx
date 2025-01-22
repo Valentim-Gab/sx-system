@@ -33,7 +33,7 @@ const AppRoutes = () => {
         v7_relativeSplatPath: true,
       }}
     >
-      <Suspense fallback={<div>Carregando...</div>}>
+      <Suspense fallback={null}>
         <Routes>
           <Route path="/" element={<LoginRoute />} />
           <Route

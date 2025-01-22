@@ -23,7 +23,7 @@ services:
       SECRET_REFRESH: ${SECRET_REFRESH}
       EMAIL_TRANSPORT: ${EMAIL_TRANSPORT}
     ports:
-      - '3003:3001'
+      - '3003:3003'
     depends_on:
       - sx-db
     networks:

@@ -26,13 +26,13 @@ export default function Login() {
   }, [toast, searchParams])
 
   return (
-    <main className="grid grid-cols-12 bg-card">
-      <section className="col-span-7">
+    <main className="min-h-dvh grid grid-cols-1 bg-card md:grid-cols-[6fr_6fr] lg:grid-cols-[7fr_5fr] xl:grid-cols-[8fr_4fr]  ">
+      <section className="hidden md:block">
         <video className="background-video" autoPlay loop muted>
           <source type="video/mp4" src="videos/tarot.mp4" />
         </video>
       </section>
-      <section className="col-span-5 place-self-center flex flex-col gap-8 items-center justify-center p-8 max-w-[400px]">
+      <section className="place-self-center flex flex-col gap-8 items-center justify-center p-8 max-w-[400px]">
         <img src="/logos/logo.png" alt="Logo" />
         <FormLogin />
       </section>

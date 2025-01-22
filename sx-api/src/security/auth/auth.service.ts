@@ -62,7 +62,7 @@ export class AuthService {
     )
   }
 
-  async confirmEmail(confirmationToken: string): Promise<void> {
+  async confirmEmail(confirmationToken: string) {
     try {
       const decoded = jwt.verify(confirmationToken, this.config.get('secret'))
 
@@ -72,7 +72,11 @@ export class AuthService {
 
       const user = await this.userService.findByEmail(decoded.email)
 
-      return await this.userService.update(user.id, { verifiedEmail: true })
+      return await this.userService.update(
+        user.id,
+        { verifiedEmail: true },
+        false,
+      )
     } catch (error) {
       throw new NotFoundException('Token inválido')
     }
@@ -85,7 +89,7 @@ export class AuthService {
         this.config.get('secret'),
         { expiresIn: '1h' },
       )
-  
+
       const mail = {
         to: email,
         from: 'noreply@application.com',
@@ -95,7 +99,7 @@ export class AuthService {
           token: confirmationToken,
         },
       }
-  
+
       await this.mailerService.sendMail(mail)
 
       return {

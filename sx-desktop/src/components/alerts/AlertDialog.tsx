@@ -9,10 +9,11 @@ import {
   AlertDialogTitle,
   AlertDialogTrigger,
 } from '@/components/ui/alert-dialog'
+import { ReactNode } from 'react'
 
 interface AlertDialogProps {
   title: string
-  description: string
+  description: string | ReactNode
   textButtonOpen: string
   textButtonCancel: string
   textButtonAction: string
@@ -29,7 +30,7 @@ export default function AlertDialog(props: AlertDialogProps) {
         <AlertDialogHeader>
           <AlertDialogTitle>{props.title}</AlertDialogTitle>
           {props.description && (
-            <AlertDialogDescription>{props.description}</AlertDialogDescription>
+            <AlertDialogDescription className='whitespace-pre-line'>{props.description}</AlertDialogDescription>
           )}
         </AlertDialogHeader>
         <AlertDialogFooter>

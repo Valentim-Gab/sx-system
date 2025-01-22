@@ -98,15 +98,22 @@ export class UserService {
     )
   }
 
-  async update(idUser: number, updateUserDto: UpdateUserDto) {
+  async update(
+    idUser: number,
+    updateUserDto: UpdateUserDto,
+    checkEmail = true,
+  ) {
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
     const { password, ...data } = updateUserDto
+    let changedEmail = false
 
-    const user = await this.findOne(idUser)
-    const changedEmail = user.email !== data.email
+    if (checkEmail) {
+      const user = await this.findOne(idUser)
+      changedEmail = user.email !== data.email
 
-    if (changedEmail) {
-      data.verifiedEmail = false
+      if (changedEmail) {
+        data.verifiedEmail = false
+      }
     }
 
     const newData = this.prismaUtil.performOperation(

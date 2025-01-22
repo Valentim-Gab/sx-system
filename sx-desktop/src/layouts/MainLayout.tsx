@@ -36,7 +36,15 @@ export default function MainLayout() {
         <p>O seu email ainda não foi verificado.</p>
         <AlertDialog
           title="Aviso!"
-          description='Um email de confirmação será enviado para: "aaaahh"'
+          description={
+            <span className='leading-5'>
+              Um email de confirmação será enviado para:
+              <br />
+              <strong>{user.email}</strong>
+              <br />
+              Verifique sua caixa de entrada e a pasta de spam.
+            </span>
+          }
           textButtonOpen="Verificar"
           textButtonAction="Confirmar"
           textButtonCancel="Cancelar"

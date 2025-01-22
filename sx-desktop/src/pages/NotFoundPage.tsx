@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 export default function NotFoundPage() {
   return (
     <main className="min-h-dvh flex items-center justify-center p-4 sm:p-8">
-      <section className="section flex flex-col items-center justify-center w-full max-w-[48  0px] h-[480px] p-4 sm:p-8">
+      <section className="section flex flex-col items-center justify-center w-full max-w-[480px] h-[480px] p-4 sm:p-8">
         <div className="flex flex-col items-center justify-center">
           <span>
             <i className="icon-[solar--folder-error-bold-duotone] w-24 h-24 text-primary"></i>

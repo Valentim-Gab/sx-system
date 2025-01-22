@@ -26,9 +26,7 @@ const InfoCard = () => {
     queryKey: ['verifyEmail'],
     queryFn: () => authService.verifyEmail(token),
     retry: false,
-    queries: {
-      refetchOnWindowFocus: false,
-    },
+    refetchOnWindowFocus: false,
   })
 
   if (isLoading) {

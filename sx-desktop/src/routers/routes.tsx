@@ -15,6 +15,7 @@ import AlterarSenhaPage from '@/pages/configuracoes/AlterarSenhaPage'
 import ContatosPage from '@/pages/configuracoes/ContatosPage'
 import PreferenciasPage from '@/pages/configuracoes/PreferenciasPage'
 import Mensagens from '@/pages/message/Mensagens'
+import NotFoundPage from '@/pages/NotFoundPage'
 
 const AppRoutes = () => {
   return (
@@ -47,6 +48,7 @@ const AppRoutes = () => {
           <Route path="forgot" element={<ForgotPassword />} />
           <Route path="reset-password" element={<ResetPassword />} />
         </Route>
+        <Route path="*" element={<NotFoundPage />} />
       </Routes>
     </Router>
   )

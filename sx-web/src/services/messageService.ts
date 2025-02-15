@@ -13,9 +13,5 @@ export async function sendMessage(message: string): Promise<boolean> {
     return false
   }
 
-  return new Promise((resolve) => {
-    setTimeout(() => {
-      resolve(true)
-    }, 2000)
-  })
+  return true
 }

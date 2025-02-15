@@ -33,7 +33,7 @@ export default function Login() {
         </video>
       </section>
       <section className="place-self-center flex flex-col gap-8 items-center justify-center p-8 max-w-[400px]">
-        <img src="/logos/logo.png" alt="Logo" />
+        <img src="/logos/logo.svg" alt="Logo" />
         <FormLogin />
       </section>
     </main>

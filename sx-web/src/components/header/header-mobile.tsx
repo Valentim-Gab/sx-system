@@ -14,7 +14,7 @@ export default function HeaderMobile() {
   return (
     <header className="flex justify-between items-center z-30 bg-background h-14 shadow-md sticky top-0 sm:h-16 lg:hidden">
       <Image
-        src={'/logos/logo.png'}
+        src={'/logos/logo.svg'}
         alt="Site logo"
         width={530}
         height={530}

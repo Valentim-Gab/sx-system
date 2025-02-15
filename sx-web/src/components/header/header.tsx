@@ -26,7 +26,7 @@ export default function Header() {
       <div className="w-full max-w-[1400px] flex px-8 py-4 justify-between items-center">
         <Link href="/" className="logo text-2xl font-black cursor-pointer px-2">
           <Image
-            src={'/logos/logo.png'}
+            src={'/logos/logo.svg'}
             alt="Site logo"
             width={530}
             height={530}

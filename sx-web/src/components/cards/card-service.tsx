@@ -23,7 +23,7 @@ export default function CardService(props: CardServiceProps) {
         <h4 className="text-xl text-foreground-strong lg:text-3xl">
           {props.title}
         </h4>
-        <p className="text-justify leading-7 lg:leading-9 lg:max-w-[500px] lg:text-xl">
+        <p className="leading-7 lg:leading-9 lg:max-w-[500px] lg:text-xl">
           {props.description}
         </p>
       </div>

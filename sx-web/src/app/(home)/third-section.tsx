@@ -3,23 +3,29 @@ import React from 'react'
 
 export default function ThirdSection() {
   const cards = [
+    // {
+    //   img: '/imgs/cards/card1-old.png',
+    //   title: 'Cabelos',
+    //   description:
+    //     'Ofereço serviços especializados em cortes, colorações e tratamentos personalizados, focados em realçar sua beleza natural e cuidar da saúde dos seus fios.',
+    // },
     {
-      img: '/imgs/cards/card1.png',
-      title: 'Cabelos',
+      img: '/imgs/cards/card1.jpg',
+      title: 'Aulas de Inglês',
       description:
-        'Nossos serviços de cabelos são especializados em cortes, colorações e tratamentos personalizados para realçar sua beleza natural e cuidar da saúde dos seus fios.',
+        'Ofereço aulas personalizadas de inglês, focadas no seu desenvolvimento linguístico, desde a conversação até a gramática, para aprimorar suas habilidades de comunicação de forma eficaz e prazerosa.',
     },
     {
-      img: '/imgs/cards/card2.png',
-      title: 'Terapia de Reiki Tibetano',
+      img: '/imgs/cards/card2.jpg',
+      title: 'Terapias Holísticas',
       description:
-        'Promover equilíbrio energético, relaxamento profundo e bem-estar físico e emocional, utilizando técnicas ancestrais de cura e harmonização.',
+        'Utilizo técnicas ancestrais de cura e harmonização para promover equilíbrio energético, relaxamento profundo e bem-estar físico e emocional.',
     },
     {
-      img: '/imgs/cards/card3.png',
+      img: '/imgs/cards/card3.jpg',
       title: 'Consulta de Tarot',
       description:
-        'Oferecemos leituras de Tarot conduzidas por especialistas intuitivos para orientação espiritual, autoconhecimento e insights valiosos sobre questões presentes e futuras em sua vida.',
+        'Realizo leituras de Tarot intuitivas, oferecendo orientação espiritual, autoconhecimento e insights valiosos sobre questões presentes e futuras em sua vida.',
     },
   ]
 
@@ -27,10 +33,10 @@ export default function ThirdSection() {
     <section className="main-container items-center px-4 py-12 gap-16 lg:py-32 lg:gap-20">
       <div className="flex flex-col items-center gap-4">
         <h3 className="text-center text-secondary dark:text-white font-secondary font-bold text-2xl lg:text-5xl">
-          Nossos serviços especiais
+          Serviços especiais
         </h3>
         <p className="text-center leading-7 lg:leading-9 text-sm max-w-[800px] sm:text-base lg:text-xl">
-          Nossos serviços são especialmente pensados para as suas necessidades,
+          Meus serviços são especialmente pensados para as suas necessidades,
           sejam elas estéticas ou espirituais.
         </p>
       </div>

@@ -15,6 +15,7 @@ async function bootstrap() {
       'app://localhost',
       'https://sx-system-web.vercel.app',
       'https://sx.valentim.software',
+      'https://elisajacques.blog',
     ],
     methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH', 'HEAD', 'OPTIONS'],
     allowedHeaders: ['Content-Type', 'set-cookie', 'Authorization'],

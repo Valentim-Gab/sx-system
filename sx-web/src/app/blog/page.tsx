@@ -35,7 +35,7 @@ export default function Blog() {
           posts.map((post, index) => (
             <div
               key={index}
-              className="bg-card p-4 shadow-lg rounded-lg sm:p-8"
+              className="bg-card p-4 shadow-lg rounded-lg dark:shadow-none dark:border sm:p-8"
             >
               <div className="mb-6 flex items-start gap-4">
                 <Image

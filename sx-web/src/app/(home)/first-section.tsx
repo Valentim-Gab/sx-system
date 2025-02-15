@@ -33,7 +33,7 @@ export default function FirstSection() {
             Professora.
           </h1>
           <h2 className="font-secondary font-bold text-3xl lg:text-5xl xl:text-6xl">
-            Terapeuta Olistica.
+            Terapeuta Holística.
           </h2>
         </div>
         <p className="text-justify leading-7 lg:leading-9 lg:max-w-[500px] lg:text-xl">
